@@ -28,6 +28,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 	ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnApplicationLook)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnUpdateApplicationLook)
 	ON_WM_SETTINGCHANGE()
+	ON_COMMAND(ID_THREAD_WORKERTHREAD, &CMainFrame::OnComputeFactorial)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -427,4 +428,15 @@ void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 {
 	CMDIFrameWndEx::OnSettingChange(uFlags, lpszSection);
 	m_wndOutput.UpdateFonts();
+}
+
+void CMainFrame::OnComputeFactorial()
+{
+	int n = rand() % 40;
+
+	auto pData = std::make_unique<FactorialThreadData>();
+	pData->nInput = n;
+	pData->pNotifyWnd = this;
+
+	AfxBeginThread(FactorialWorkerThread, pData.release());
 }

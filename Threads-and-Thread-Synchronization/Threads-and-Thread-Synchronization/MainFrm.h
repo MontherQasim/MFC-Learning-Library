@@ -7,6 +7,8 @@
 #include "ClassView.h"
 #include "OutputWnd.h"
 #include "PropertiesWnd.h"
+#include "WorkerThread.h"
+#include <memory>
 
 class CMainFrame : public CMDIFrameWndEx
 {
@@ -52,6 +54,7 @@ protected:
 	afx_msg void OnApplicationLook(UINT id);
 	afx_msg void OnUpdateApplicationLook(CCmdUI* pCmdUI);
 	afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
+	afx_msg void OnComputeFactorial();
 	DECLARE_MESSAGE_MAP()
 
 	BOOL CreateDockingWindows();
