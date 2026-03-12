@@ -45,6 +45,10 @@ protected:  // control bar embedded members
 	CClassView        m_wndClassView;
 	COutputWnd        m_wndOutput;
 	CPropertiesWnd    m_wndProperties;
+	CClassView        m_wndClassView;
+	CWinThread*       m_pWorkerThread;
+
+	bool m_bSuspended = false;
 
 // Generated message map functions
 protected:
@@ -57,6 +61,10 @@ protected:
 	afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
 	afx_msg void OnComputeFactorial();
 	afx_msg void OnDisplayUIWindow();
+	afx_msg void OnSustpendedWorkerThread();
+	afx_msg void OnResumedWorkerThread();
+	afx_msg void OnUpdateThreadSuspend(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateThreadResume(CCmdUI* pCmdUI);
 	DECLARE_MESSAGE_MAP()
 
 	BOOL CreateDockingWindows();
