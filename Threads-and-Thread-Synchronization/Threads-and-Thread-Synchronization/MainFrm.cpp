@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnUpdateApplicationLook)
 	ON_WM_SETTINGCHANGE()
 	ON_COMMAND(ID_THREAD_WORKERTHREAD, &CMainFrame::OnComputeFactorial)
+	ON_COMMAND(ID_THREAD_UITHREAD, &CMainFrame::OnDisplayUIWindow)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -439,4 +440,9 @@ void CMainFrame::OnComputeFactorial()
 	pData->pNotifyWnd = this;
 
 	AfxBeginThread(FactorialWorkerThread, pData.release());
+}
+
+void CMainFrame::OnDisplayUIWindow()
+{
+	CWinThread* pThread = AfxBeginThread(RUNTIME_CLASS(UIThread));
 }

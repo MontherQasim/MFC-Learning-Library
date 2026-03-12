@@ -196,6 +196,8 @@
     <ClInclude Include="Threads-and-Thread-Synchronization.h" />
     <ClInclude Include="Threads-and-Thread-SynchronizationDoc.h" />
     <ClInclude Include="Threads-and-Thread-SynchronizationView.h" />
+    <ClInclude Include="ThreadWindow.h" />
+    <ClInclude Include="UIThread.h" />
     <ClInclude Include="ViewTree.h" />
     <ClInclude Include="WorkerThread.h" />
   </ItemGroup>
@@ -215,6 +217,8 @@
     <ClCompile Include="Threads-and-Thread-Synchronization.cpp" />
     <ClCompile Include="Threads-and-Thread-SynchronizationDoc.cpp" />
     <ClCompile Include="Threads-and-Thread-SynchronizationView.cpp" />
+    <ClCompile Include="ThreadWindow.cpp" />
+    <ClCompile Include="UIThread.cpp" />
     <ClCompile Include="ViewTree.cpp" />
     <ClCompile Include="WorkerThread.cpp" />
   </ItemGroup>
