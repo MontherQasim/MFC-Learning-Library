@@ -440,6 +440,8 @@ void CMainFrame::OnComputeFactorial()
 	pData->pNotifyWnd = this;
 
 	m_pWorkerThread = AfxBeginThread(FactorialWorkerThread, pData.release());
+
+	Sleep(2000);
 }
 
 void CMainFrame::OnDisplayUIWindow()
