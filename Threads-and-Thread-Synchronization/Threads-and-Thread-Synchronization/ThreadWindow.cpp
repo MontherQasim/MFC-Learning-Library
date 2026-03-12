@@ -14,3 +14,9 @@ ThreadWindow::ThreadWindow()
 ThreadWindow::~ThreadWindow()
 {
 }
+
+void ThreadWindow::PostNcDestroy()
+{
+    CFrameWnd::PostNcDestroy();
+    delete this;
+}

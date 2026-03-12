@@ -49,7 +49,6 @@ protected:  // control bar embedded members
 	CWinThread*       m_pWorkerThread;
 
 	bool m_bSuspended = false;
-
 // Generated message map functions
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

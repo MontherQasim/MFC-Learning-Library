@@ -5,7 +5,7 @@ class ThreadWindow : public CFrameWnd
 public:
     ThreadWindow();
     virtual ~ThreadWindow();
-
+    virtual void PostNcDestroy();
 protected:
 
     DECLARE_MESSAGE_MAP()
